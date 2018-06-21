@@ -1,0 +1,390 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252" />
+<title>Login Page</title>
+<h1>WELCOME TO THE LOGIN PAGE </h1>
+<h2>Enter your details to login:
+PLEASE USE BELOW ON-SCREEN KEYBOARD.</h2>
+</head>
+<style>
+html, body, * {
+    cursor: url(cursor.png), auto;
+    margin: 0;
+    padding: 0;
+}
+.cursor {
+    position: fixed;
+    z-index: 20;
+    top: -50px;
+}
+
+</style>
+
+<!--this is for fake pointer -->
+<img id="fakeCursor1" class="cursor" src="/home/kuro/Documents/PENTEST_PROJECT/cursor-arrow.png">
+<img id="fakeCursor2" class="cursor" src="/home/kuro/Documents/PENTEST_PROJECT/cursor-arrow.png">
+<img id="fakeCursor3" class="cursor" src="/home/kuro/Documents/PENTEST_PROJECT/cursor-arrow.png">
+<img id="fakeCursor4" class="cursor" src="/home/kuro/Documents/PENTEST_PROJECT/cursor-arrow.png">
+<!-- <img id="fakeCursor5" class="cursor" src="/home/kuro/Documents/PENTEST_PROJECT/cursor-arrow.png">
+<img id="fakeCursor6" class="cursor" src="/home/kuro/Documents/PENTEST_PROJECT/cursor-arrow.png">
+<img id="fakeCursor7" class="cursor" src="/home/kuro/Documents/PENTEST_PROJECT/cursor-arrow.png"> -->
+<script>
+// get the fake cursor by is id
+var xyMirror1 = document.getElementById('fakeCursor1');
+var xyMirror2 = document.getElementById('fakeCursor2');
+var xyMirror3 = document.getElementById('fakeCursor3');
+var xyMirror4 = document.getElementById('fakeCursor4');
+/* var xyMirror5 = document.getElementById('fakeCursor5');
+var xyMirror6 = document.getElementById('fakeCursor6');
+var xyMirror7 = document.getElementById('fakeCursor7'); */
+
+// listen for mouse movements
+window.onmousemove = function(event) {
+    // get the user's mouse position
+    var X = event.clientX;
+    var Y = event.clientY;
+    // get the browser window dimensions
+    windowHeight = window.innerHeight;
+    windowWidth = window.innerWidth;
+    // create an inversion of the mouse X, Y position
+    // subtract mouse X position from window width
+    // subtract mouse Y position from window height
+    var fakeX = windowWidth - X;
+    var fakeY = windowHeight - Y;
+    // use those numbers to update the fake cursor position
+    xyMirror1.style.top = fakeY+'px';
+    xyMirror2.style.left = fakeX+'px';
+    xyMirror1.style.top = fakeY+'px';
+    xyMirror2.style.left = fakeX+'px';
+      xyMirror3.style.right = fakeX+'px';
+        xyMirror3.style.top = fakeY+'px';
+        xyMirror4.style.top = fakeY+'px';
+        xyMirror4.style.left = fakeX+'px';
+}
+</script>
+
+<!-- script for onscreen keyboard-->
+<script type="text/javascript">
+  <!--
+  var shiftState = 'lowercase';
+  var altGrState = 'off';
+  var capsLockState = 'off';
+
+  function keyClick(key)
+  {
+    shiftToggle('normalKeyClick');
+    altGrToggle('normalKeyClick');
+    if(key == '&amp;')
+    {
+      key = '&';
+    }
+    if(key == '&lt;')
+    {
+      key = '<';
+    }
+    if(key == '&gt;')
+    {
+      key = '>';
+    }
+    if(key == 'backsp.')
+    {
+      var formFieldValue = document.getElementById('echoField').value;
+      document.getElementById('echoField').value = formFieldValue.substring(0, formFieldValue.length - 1); // Backspacing over newlines only works in Gecko based browsers
+    }
+    else
+    {
+      document.getElementById('echoField').value = document.getElementById('echoField').value + key;
+    }
+    document.getElementById('echoField').focus();
+  }
+
+  function shiftToggle(toggleType)
+  {
+    if((shiftState == 'lowercase') && (toggleType != 'normalKeyClick'))
+    {                                                             <!-- all the keys -->
+      document.getElementById('a').innerHTML = 'A';
+      document.getElementById('b').innerHTML = 'B';
+      document.getElementById('c').innerHTML = 'C';
+      document.getElementById('d').innerHTML = 'D';
+      document.getElementById('e').innerHTML = 'E';
+      document.getElementById('f').innerHTML = 'F';
+      document.getElementById('g').innerHTML = 'G';
+      document.getElementById('h').innerHTML = 'H';
+      document.getElementById('i').innerHTML = 'I';
+      document.getElementById('j').innerHTML = 'J';
+      document.getElementById('k').innerHTML = 'K';
+      document.getElementById('l').innerHTML = 'L';
+      document.getElementById('m').innerHTML = 'M';
+      document.getElementById('n').innerHTML = 'N';
+      document.getElementById('o').innerHTML = 'O';
+      document.getElementById('p').innerHTML = 'P';
+      document.getElementById('q').innerHTML = 'Q';
+      document.getElementById('r').innerHTML = 'R';
+      document.getElementById('s').innerHTML = 'S';
+      document.getElementById('t').innerHTML = 'T';
+      document.getElementById('u').innerHTML = 'U';
+      document.getElementById('v').innerHTML = 'V';
+      document.getElementById('w').innerHTML = 'W';
+      document.getElementById('x').innerHTML = 'X';
+      document.getElementById('y').innerHTML = 'Y';
+      document.getElementById('z').innerHTML = 'Z';
+      document.getElementById('ae').innerHTML = 'Æ';
+      document.getElementById('oe').innerHTML = 'Ø';
+      document.getElementById('aa').innerHTML = 'Å';
+      document.getElementById('oneHalf').innerHTML = '§';
+      document.getElementById('n1').innerHTML = '!';
+      document.getElementById('n2').innerHTML = '\"';
+      document.getElementById('n3').innerHTML = '#';
+      document.getElementById('n4').innerHTML = '¤';
+      document.getElementById('n5').innerHTML = '%';
+      document.getElementById('n6').innerHTML = '&amp;';
+      document.getElementById('n7').innerHTML = '\/';
+      document.getElementById('n8').innerHTML = '(';
+      document.getElementById('n9').innerHTML = ')';
+      document.getElementById('n0').innerHTML = '=';
+      document.getElementById('plus').innerHTML = '?';
+      document.getElementById('forwardSingleQuote').innerHTML = '`';
+      document.getElementById('lessThan').innerHTML = '&gt;';
+      document.getElementById('comma').innerHTML = '\;';
+      document.getElementById('dot').innerHTML = ':';
+      document.getElementById('dash').innerHTML = '_';
+      document.getElementById('singleQuote').innerHTML = '*';
+      document.getElementById('umlaut').innerHTML = '^';
+      shiftState = 'uppercase';
+    }
+    else if (shiftState == 'uppercase')
+    {
+      if(capsLockState == 'off')
+      {
+        document.getElementById('a').innerHTML = 'a';
+        document.getElementById('b').innerHTML = 'b';
+        document.getElementById('c').innerHTML = 'c';
+        document.getElementById('d').innerHTML = 'd';
+        document.getElementById('e').innerHTML = 'e';
+        document.getElementById('f').innerHTML = 'f';
+        document.getElementById('g').innerHTML = 'g';
+        document.getElementById('h').innerHTML = 'h';
+        document.getElementById('i').innerHTML = 'i';
+        document.getElementById('j').innerHTML = 'j';
+        document.getElementById('k').innerHTML = 'k';
+        document.getElementById('l').innerHTML = 'l';
+        document.getElementById('m').innerHTML = 'm';
+        document.getElementById('n').innerHTML = 'n';
+        document.getElementById('o').innerHTML = 'o';
+        document.getElementById('p').innerHTML = 'p';
+        document.getElementById('q').innerHTML = 'q';
+        document.getElementById('r').innerHTML = 'r';
+        document.getElementById('s').innerHTML = 's';
+        document.getElementById('t').innerHTML = 't';
+        document.getElementById('u').innerHTML = 'u';
+        document.getElementById('v').innerHTML = 'v';
+        document.getElementById('w').innerHTML = 'w';
+        document.getElementById('x').innerHTML = 'x';
+        document.getElementById('y').innerHTML = 'y';
+        document.getElementById('z').innerHTML = 'z';
+        document.getElementById('ae').innerHTML = 'æ';
+        document.getElementById('oe').innerHTML = 'ø';
+        document.getElementById('aa').innerHTML = 'å';
+        document.getElementById('oneHalf').innerHTML = '½';
+        document.getElementById('n1').innerHTML = '1';
+        document.getElementById('n2').innerHTML = '2';
+        document.getElementById('n3').innerHTML = '3';
+        document.getElementById('n4').innerHTML = '4';
+        document.getElementById('n5').innerHTML = '5';
+        document.getElementById('n6').innerHTML = '6';
+        document.getElementById('n7').innerHTML = '7';
+        document.getElementById('n8').innerHTML = '8';
+        document.getElementById('n9').innerHTML = '9';
+        document.getElementById('n0').innerHTML = '0';
+        document.getElementById('plus').innerHTML = '+';
+        document.getElementById('forwardSingleQuote').innerHTML = '´';
+        document.getElementById('lessThan').innerHTML = '&lt;';
+        document.getElementById('comma').innerHTML = ',';
+        document.getElementById('dot').innerHTML = '.';
+        document.getElementById('dash').innerHTML = '-';
+        document.getElementById('singleQuote').innerHTML = '\'';
+        document.getElementById('umlaut').innerHTML = '¨';
+        shiftState = 'lowercase';
+      }
+    }
+  }
+
+  function altGrToggle(toggleType)
+  {
+    if((altGrState == 'off') && (toggleType != 'normalKeyClick'))
+    {
+      document.getElementById('n2').innerHTML = '@';
+      document.getElementById('n3').innerHTML = '£';
+      document.getElementById('e').innerHTML = '€';
+      document.getElementById('n4').innerHTML = '$';
+      document.getElementById('n7').innerHTML = '{';
+      document.getElementById('n8').innerHTML = '[';
+      document.getElementById('n9').innerHTML = ']';
+      document.getElementById('n0').innerHTML = '}';
+      document.getElementById('forwardSingleQuote').innerHTML = '|';
+      document.getElementById('umlaut').innerHTML = '~';
+      document.getElementById('lessThan').innerHTML = '\\';
+      altGrState = 'on';
+    }
+    else if (altGrState == 'on')
+    {
+      document.getElementById('n2').innerHTML = '2';
+      document.getElementById('n3').innerHTML = '3';
+      document.getElementById('e').innerHTML = 'e';
+      document.getElementById('n4').innerHTML = '4';
+      document.getElementById('n7').innerHTML = '7';
+      document.getElementById('n8').innerHTML = '8';
+      document.getElementById('n9').innerHTML = '9';
+      document.getElementById('n0').innerHTML = '0';
+      document.getElementById('forwardSingleQuote').innerHTML = '´';
+      document.getElementById('umlaut').innerHTML = '¨';
+      document.getElementById('lessThan').innerHTML = '&lt;';
+      altGrState = 'off';
+    }
+  }
+
+  function toggleCapsLock()
+  {
+    if(capsLockState == 'off')
+    {
+      capsLockState = 'on';
+      shiftToggle('capsLock')
+    }
+    else
+    {
+      capsLockState = 'off';
+      shiftToggle('capsLock');
+    }
+  }
+  -->
+</script>
+<style type="text/css">
+  span.key  { font-family: monospace;
+              font-size: 14px;
+              cursor: pointer;
+              border-collapse: collapse;
+              border: 1px solid #000000;
+              padding-left: 5px;
+              padding-right: 5px;
+              padding-top: 2px;
+              padding-bottom: 2px;
+              background-color: #FFFFFF;
+              }
+  #keyboard { font-family: monospace;
+              line-height: 230%;
+              border-collapse: collapse;
+              border: 2px solid #000000;
+              padding: 4px;
+              width: 460px;
+              background-color: #CFCFCF;
+              }
+  #shift2   { padding-right: 40px;
+              }
+  #Space    { padding-right: 85px;
+              padding-left: 85px;
+              }
+</style>
+</head>
+<body>
+<form >
+<h2> Username: </h2><input id="echoField" type="text" name="username" value='' maxlength="20" size="60" style="font-size=20;"><br>
+
+<h2>Click on ENTER to Continue:</h2><br>
+</form>
+<br/><br />
+<div id="container">
+</div>
+
+<!-- camera iframe script -->
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.0/jquery.min.js"></script>
+    <script type="text/javascript">
+    $(function(){
+        $('#Enter1').click(function(){
+            if(!$('#iframe').length) {
+                    $('#iframeHolder').html('<iframe id="iframe" src="file:///home/kuro/Documents/PENTEST_PROJECT/tst2.html" width="700" height="450"></iframe>');
+            }
+        });
+    });
+
+    </script>
+    <div id="iframeHolder"></div>
+
+<!-- function to show/hide the iframe -- >
+    <br/>
+
+<!--Onscreen keyboard -->
+
+  <div id="keyboard">
+    <span class="key" id="oneHalf" onclick="keyClick(this.innerHTML)"     onmousedown="this.style.backgroundColor='#6187CE'" onmouseup="this.style.backgroundColor='#FFFFFF'">½</span>
+    <span class="key" id="n1" onclick="keyClick(this.innerHTML)"          onmousedown="this.style.backgroundColor='#6187CE'" onmouseup="this.style.backgroundColor='#FFFFFF'">1</span>
+    <span class="key" id="n2" onclick="keyClick(this.innerHTML)"          onmousedown="this.style.backgroundColor='#6187CE'" onmouseup="this.style.backgroundColor='#FFFFFF'">2</span>
+    <span class="key" id="n3" onclick="keyClick(this.innerHTML)"          onmousedown="this.style.backgroundColor='#6187CE'" onmouseup="this.style.backgroundColor='#FFFFFF'">3</span>
+    <span class="key" id="n4" onclick="keyClick(this.innerHTML)"          onmousedown="this.style.backgroundColor='#6187CE'" onmouseup="this.style.backgroundColor='#FFFFFF'">4</span>
+    <span class="key" id="n5" onclick="keyClick(this.innerHTML)"          onmousedown="this.style.backgroundColor='#6187CE'" onmouseup="this.style.backgroundColor='#FFFFFF'">5</span>
+    <span class="key" id="n6" onclick="keyClick(this.innerHTML)"          onmousedown="this.style.backgroundColor='#6187CE'" onmouseup="this.style.backgroundColor='#FFFFFF'">6</span>
+    <span class="key" id="n7" onclick="keyClick(this.innerHTML)"          onmousedown="this.style.backgroundColor='#6187CE'" onmouseup="this.style.backgroundColor='#FFFFFF'">7</span>
+    <span class="key" id="n8" onclick="keyClick(this.innerHTML)"          onmousedown="this.style.backgroundColor='#6187CE'" onmouseup="this.style.backgroundColor='#FFFFFF'">8</span>
+    <span class="key" id="n9" onclick="keyClick(this.innerHTML)"          onmousedown="this.style.backgroundColor='#6187CE'" onmouseup="this.style.backgroundColor='#FFFFFF'">9</span>
+    <span class="key" id="n0" onclick="keyClick(this.innerHTML)"          onmousedown="this.style.backgroundColor='#6187CE'" onmouseup="this.style.backgroundColor='#FFFFFF'">0</span>
+    <span class="key" id="plus" onclick="keyClick(this.innerHTML)"        onmousedown="this.style.backgroundColor='#6187CE'" onmouseup="this.style.backgroundColor='#FFFFFF'">+</span>
+    <span class="key" id="forwardSingleQuote" onclick="keyClick(this.innerHTML)" onmousedown="this.style.backgroundColor='#6187CE'" onmouseup="this.style.backgroundColor='#FFFFFF'">´</span>
+    <span class="key" id="backsp" onclick="keyClick(this.innerHTML)"      onmousedown="this.style.backgroundColor='#6187CE'" onmouseup="this.style.backgroundColor='#FFFFFF'">backsp.</span><br />
+
+    <span class="key" id="tab" onclick="keyClick('\t')"                   onmousedown="this.style.backgroundColor='#6187CE'" onmouseup="this.style.backgroundColor='#FFFFFF'">tab</span>
+    <span class="key" id="q" onclick="keyClick(this.innerHTML)"           onmousedown="this.style.backgroundColor='#6187CE'" onmouseup="this.style.backgroundColor='#FFFFFF'">q</span>
+    <span class="key" id="w" onclick="keyClick(this.innerHTML)"           onmousedown="this.style.backgroundColor='#6187CE'" onmouseup="this.style.backgroundColor='#FFFFFF'">w</span>
+    <span class="key" id="e" onclick="keyClick(this.innerHTML)"           onmousedown="this.style.backgroundColor='#6187CE'" onmouseup="this.style.backgroundColor='#FFFFFF'">e</span>
+    <span class="key" id="r" onclick="keyClick(this.innerHTML)"           onmousedown="this.style.backgroundColor='#6187CE'" onmouseup="this.style.backgroundColor='#FFFFFF'">r</span>
+    <span class="key" id="t" onclick="keyClick(this.innerHTML)"           onmousedown="this.style.backgroundColor='#6187CE'" onmouseup="this.style.backgroundColor='#FFFFFF'">t</span>
+    <span class="key" id="y" onclick="keyClick(this.innerHTML)"           onmousedown="this.style.backgroundColor='#6187CE'" onmouseup="this.style.backgroundColor='#FFFFFF'">y</span>
+    <span class="key" id="u" onclick="keyClick(this.innerHTML)"           onmousedown="this.style.backgroundColor='#6187CE'" onmouseup="this.style.backgroundColor='#FFFFFF'">u</span>
+    <span class="key" id="i" onclick="keyClick(this.innerHTML)"           onmousedown="this.style.backgroundColor='#6187CE'" onmouseup="this.style.backgroundColor='#FFFFFF'">i</span>
+    <span class="key" id="o" onclick="keyClick(this.innerHTML)"           onmousedown="this.style.backgroundColor='#6187CE'" onmouseup="this.style.backgroundColor='#FFFFFF'">o</span>
+    <span class="key" id="p" onclick="keyClick(this.innerHTML)"           onmousedown="this.style.backgroundColor='#6187CE'" onmouseup="this.style.backgroundColor='#FFFFFF'">p</span>
+    <span class="key" id="aa" onclick="keyClick(this.innerHTML)"          onmousedown="this.style.backgroundColor='#6187CE'" onmouseup="this.style.backgroundColor='#FFFFFF'">å</span>
+    <span class="key" id="umlaut" onclick="keyClick(this.innerHTML)"      onmousedown="this.style.backgroundColor='#6187CE'" onmouseup="this.style.backgroundColor='#FFFFFF'">¨</span>
+    <span class="key" id="Enter1" onclick="function()"                onmousedown="this.style.backgroundColor='#6187CE'" onmouseup="this.style.backgroundColor='#FFFFFF'">Enter</span><br />
+
+    <span class="key" id="capsLock" onclick="toggleCapsLock()"            onmousedown="this.style.backgroundColor='#6187CE'" onmouseup="this.style.backgroundColor='#FFFFFF'">C.L.</span>
+    <span class="key" id="a" onclick="keyClick(this.innerHTML)"           onmousedown="this.style.backgroundColor='#6187CE'" onmouseup="this.style.backgroundColor='#FFFFFF'">a</span>
+    <span class="key" id="s" onclick="keyClick(this.innerHTML)"           onmousedown="this.style.backgroundColor='#6187CE'" onmouseup="this.style.backgroundColor='#FFFFFF'">s</span>
+    <span class="key" id="d" onclick="keyClick(this.innerHTML)"           onmousedown="this.style.backgroundColor='#6187CE'" onmouseup="this.style.backgroundColor='#FFFFFF'">d</span>
+    <span class="key" id="f" onclick="keyClick(this.innerHTML)"           onmousedown="this.style.backgroundColor='#6187CE'" onmouseup="this.style.backgroundColor='#FFFFFF'">f</span>
+    <span class="key" id="g" onclick="keyClick(this.innerHTML)"           onmousedown="this.style.backgroundColor='#6187CE'" onmouseup="this.style.backgroundColor='#FFFFFF'">g</span>
+    <span class="key" id="h" onclick="keyClick(this.innerHTML)"           onmousedown="this.style.backgroundColor='#6187CE'" onmouseup="this.style.backgroundColor='#FFFFFF'">h</span>
+    <span class="key" id="j" onclick="keyClick(this.innerHTML)"           onmousedown="this.style.backgroundColor='#6187CE'" onmouseup="this.style.backgroundColor='#FFFFFF'">j</span>
+    <span class="key" id="k" onclick="keyClick(this.innerHTML)"           onmousedown="this.style.backgroundColor='#6187CE'" onmouseup="this.style.backgroundColor='#FFFFFF'">k</span>
+    <span class="key" id="l" onclick="keyClick(this.innerHTML)"           onmousedown="this.style.backgroundColor='#6187CE'" onmouseup="this.style.backgroundColor='#FFFFFF'">l</span>
+    <span class="key" id="ae" onclick="keyClick(this.innerHTML)"          onmousedown="this.style.backgroundColor='#6187CE'" onmouseup="this.style.backgroundColor='#FFFFFF'">æ</span>
+    <span class="key" id="oe" onclick="keyClick(this.innerHTML)"          onmousedown="this.style.backgroundColor='#6187CE'" onmouseup="this.style.backgroundColor='#FFFFFF'">ø</span>
+    <span class="key" id="singleQuote" onclick="keyClick(this.innerHTML)" onmousedown="this.style.backgroundColor='#6187CE'" onmouseup="this.style.backgroundColor='#FFFFFF'">'</span>
+    <span class="key" id="Enter2" onclick="keyClick('\n')"                onmousedown="this.style.backgroundColor='#6187CE'" onmouseup="this.style.backgroundColor='#FFFFFF'">Ent.</span><br />
+
+    <span class="key" id="shift1" onclick="shiftToggle()"                 onmousedown="this.style.backgroundColor='#6187CE'" onmouseup="this.style.backgroundColor='#FFFFFF'">sh</span>
+    <span class="key" id="lessThan" onclick="keyClick(this.innerHTML)"    onmousedown="this.style.backgroundColor='#6187CE'" onmouseup="this.style.backgroundColor='#FFFFFF'">&lt;</span>
+    <span class="key" id="z" onclick="keyClick(this.innerHTML)"           onmousedown="this.style.backgroundColor='#6187CE'" onmouseup="this.style.backgroundColor='#FFFFFF'">z</span>
+    <span class="key" id="x" onclick="keyClick(this.innerHTML)"           onmousedown="this.style.backgroundColor='#6187CE'" onmouseup="this.style.backgroundColor='#FFFFFF'">x</span>
+    <span class="key" id="c" onclick="keyClick(this.innerHTML)"           onmousedown="this.style.backgroundColor='#6187CE'" onmouseup="this.style.backgroundColor='#FFFFFF'">c</span>
+    <span class="key" id="v" onclick="keyClick(this.innerHTML)"           onmousedown="this.style.backgroundColor='#6187CE'" onmouseup="this.style.backgroundColor='#FFFFFF'">v</span>
+    <span class="key" id="b" onclick="keyClick(this.innerHTML)"           onmousedown="this.style.backgroundColor='#6187CE'" onmouseup="this.style.backgroundColor='#FFFFFF'">b</span>
+    <span class="key" id="n" onclick="keyClick(this.innerHTML)"           onmousedown="this.style.backgroundColor='#6187CE'" onmouseup="this.style.backgroundColor='#FFFFFF'">n</span>
+    <span class="key" id="m" onclick="keyClick(this.innerHTML)"           onmousedown="this.style.backgroundColor='#6187CE'" onmouseup="this.style.backgroundColor='#FFFFFF'">m</span>
+    <span class="key" id="comma" onclick="keyClick(this.innerHTML)"       onmousedown="this.style.backgroundColor='#6187CE'" onmouseup="this.style.backgroundColor='#FFFFFF'">,</span>
+    <span class="key" id="dot" onclick="keyClick(this.innerHTML)"         onmousedown="this.style.backgroundColor='#6187CE'" onmouseup="this.style.backgroundColor='#FFFFFF'">.</span>
+    <span class="key" id="dash" onclick="keyClick(this.innerHTML)"        onmousedown="this.style.backgroundColor='#6187CE'" onmouseup="this.style.backgroundColor='#FFFFFF'">-</span>
+    <span class="key" id="shift2" onclick="shiftToggle()"                 onmousedown="this.style.backgroundColor='#6187CE'" onmouseup="this.style.backgroundColor='#FFFFFF'">shift</span><br />
+
+    <span class="key" id="Ctrl1" onclick="keyClick('')"                   onmousedown="this.style.backgroundColor='#6187CE'" onmouseup="this.style.backgroundColor='#FFFFFF'">Ctrl</span>
+    <span class="key" id="Alt" onclick="keyClick('')"                     onmousedown="this.style.backgroundColor='#6187CE'" onmouseup="this.style.backgroundColor='#FFFFFF'">Alt</span>
+    <span class="key" id="Space" onclick="keyClick(' ')"                  onmousedown="this.style.backgroundColor='#6187CE'" onmouseup="this.style.backgroundColor='#FFFFFF'">Space</span>
+    <span class="key" id="AltGr" onclick="altGrToggle()"                  onmousedown="this.style.backgroundColor='#6187CE'" onmouseup="this.style.backgroundColor='#FFFFFF'">Alt Gr</span>
+    <span class="key" id="Ctrl2" onclick="keyClick('')"                   onmousedown="this.style.backgroundColor='#6187CE'" onmouseup="this.style.backgroundColor='#FFFFFF'">Ctrl</span>
+  </div>
+
+  <!-- script for showing ads-->
+<div align="center">
+  <script id="ad" data-num-rows="2" src="https://s3-us-west-2.amazonaws.com/kaboodle/kaboodle.js" type="text/javascript"></script>
+</div>
+
+</body>
+</html>
